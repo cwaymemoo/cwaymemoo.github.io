@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>C-Way Installation</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta charset="UTF-8">
+		<style>
+			body  { margin:0px; background: #f7f7f7; font-family: "Roboto", Arial, Helvetica, sans-serif; font-size:16px; }
+			a     { text-decoration: none; color:#9c9c9c; }
+			b     { color: #87cde5; font-size:18px; }
+			b.red { color: #e8305b; }
+			.bk   { position:absolute; width:40px;}
+			.h    { height:40px; line-height: 40px; background: #ebebeb; box-shadow: 0 2px 4px rgba(0,0,0,.1); text-align: center; color:#9c9c9c; }
+			.c    { max-width:600px; margin:auto; }
+			.c ul { margin: auto; padding: 0px; width:85%; margin-top:30px}
+			.c li { list-style-type: none; margin-bottom:15px; }
+			.c .n { width:20px; margin-left:auto; margin-right:auto; border:2px solid #e8305b; background-color: #e8305b; color:white; border-radius: 50%; }
+			.b    { margin:auto; margin-bottom:20px; max-width: 50%; height:50px; background: #e8305b; text-align: center; line-height: 50px; border-radius: 20px; font-weight: bold; color:white; }
+			.b.wait { margin:auto; margin-bottom:20px; max-width: 50%; height:50px; background: #9c9c9c; text-align: center; line-height: 50px; border-radius: 20px; font-weight: bold; color:white; }
+			.m    { background: #e8305b; color:white; font-size:12px; padding:5px; margin-bottom:10px; border-radius:5px; }
+			.hide { display: none; }
+		</style>
+	</head>
+
+	<body>
+		<div class="h">
+			<div>Mise en route (1/2)</div>
+		</div>
+		<div class="c">
+			<ul id="1" class="hide">
+				<div class="m">
+					<p>Suite à l'arrêt des activités de la société C-WAY.</p>
+					<p>Veuillez suivre les étapes suivantes, afin de profiter de votre memoo en mode offline.</p>
+					<p>Certaines des fonctionnalités ne sont plus disponibles: Messagerie, Radio, Météo, Evénement.</p>
+					<p>Vous continuez à profiter du: Streaming Bluetooth, Deezer, Spotify, (via un téléphone), Histoire, Alarme, Veilleuse.</p>
+					<p>Merci de votre compréhension.</p>
+				</div><br>
+
+				<li><b>1)</b> Veuillez <b class="red">brancher</b> votre memoo (attendre "0000" sur l'heure).</li>
+				<li><b>2)</b> Connectez-vous au réseau <b class="red">"memoo_xxx"</b> depuis cet appareil.</li>
+				<li><b>3)</b> Retourner sur cet écran afin de poursuivre l'installation.</li>
+
+				<a id="btn_wait" href="#">
+					<div class="b wait">
+						<div>
+							<p>En attente...</p>
+						</div>
+					</div>
+				</a>
+
+				<a id="btn_next" class="hide" href="http://192.168.1.1/memoo">
+					<div class="b">
+						<div>
+							<p>Suivant</p>
+						</div>
+					</div>
+				</a><br>
+
+				<p>-----</p>
+				<p style="font-size:10px">Streaming Bluetooth, avec votre téléphone Android / iOS à proximité de la memoo, séléctionnez "memoo" dans les paramètres Bluetooth de votre téléphone, puis diffusez le contenu souhaité.</p>
+
+				<p>-----</p>
+				<p style="font-size:10px">Si la mise en route ne fonctionne pas, attendre le clignotement rouge de la memoo avec "0000" au niveau de l'heure, connectez-vous au réseau "memoo_xxx", puis ouvrez un navigateur web depuis cet appareil, tapez dans la barre d'adresse http://192.168.1.1/memoo et poursuivez l'installation.</p>
+			</ul>
+		</div>
+
+		<script type="text/javascript">
+			(function () {
+				window.addEventListener("hashchange", function () {
+					switch (window.location.hash) {
+						case "#1":
+							document.getElementById('1').classList.remove('hide');
+
+							// Next 30s
+							setTimeout(function () {
+								document.getElementById('btn_next').classList.remove('hide');
+								document.getElementById('btn_wait').classList.add('hide');
+							}, 30000);
+							break;
+					}
+				});
+
+				window.location.hash = "";
+				window.location.hash = "#1";
+			})();
+		</script>
+	</body>
+</html>
